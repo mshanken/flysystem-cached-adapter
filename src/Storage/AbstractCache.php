@@ -100,7 +100,9 @@ abstract class AbstractCache implements CacheInterface
             $this->autosave();
         }
 
-        $this->ensureParentDirectories($path);
+        if (array_key_exists('dirname', $path)) {
+            $this->ensureParentDirectories($path);
+        }
     }
 
     /**
